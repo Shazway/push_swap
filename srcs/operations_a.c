@@ -6,7 +6,7 @@
 /*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 00:08:30 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/27 18:48:29 by krain            ###   ########.fr       */
+/*   Updated: 2021/10/27 19:03:55 by krain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,6 @@ void	ra(t_data *data, int pr)
 	data->operations++;
 }
 
-void	sa(t_data *data, int pr)
-{
-	int	temp;
-
-	if (data->alen < 1)
-		return ;
-	temp = data->a[data->alen];
-	data->a[data->alen] = data->a[data->alen - 1];
-	data->a[data->alen - 1] = temp;
-	if (pr != 0 && data->print)
-		write(1, "sa\n", 3);
-	data->operations++;
-}
-
 void	rra(t_data *data, int pr)
 {
 	int	temp;
@@ -75,5 +61,19 @@ void	rra(t_data *data, int pr)
 	data->a[data->alen] = temp;
 	if (pr != 0 && data->print)
 		write(1, "rra\n", 4);
+	data->operations++;
+}
+
+void	sa(t_data *data, int pr)
+{
+	int	temp;
+
+	if (data->alen < 1)
+		return ;
+	temp = data->a[data->alen];
+	data->a[data->alen] = data->a[data->alen - 1];
+	data->a[data->alen - 1] = temp;
+	if (pr != 0 && data->print)
+		write(1, "sa\n", 3);
 	data->operations++;
 }

@@ -6,7 +6,7 @@
 /*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 11:12:50 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/27 18:48:33 by krain            ###   ########.fr       */
+/*   Updated: 2021/10/27 19:04:21 by krain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,6 @@ void	pb(t_data *data)
 	data->alen--;
 	if (data->print)
 		write(1, "pb\n", 3);
-	data->operations++;
-}
-
-void	sb(t_data *data, int pr)
-{
-	int	temp;
-
-	if (data->blen < 1)
-		return ;
-	temp = data->b[data->blen];
-	data->b[data->blen] = data->b[data->blen - 1];
-	data->b[data->blen - 1] = temp;
-	if (pr != 0 && data->print)
-		write(1, "sb\n", 3);
 	data->operations++;
 }
 
@@ -75,5 +61,19 @@ void	rrb(t_data *data, int pr)
 	data->b[data->blen] = temp;
 	if (pr != 0 && data->print)
 		write(1, "rrb\n", 4);
+	data->operations++;
+}
+
+void	sb(t_data *data, int pr)
+{
+	int	temp;
+
+	if (data->blen < 1)
+		return ;
+	temp = data->b[data->blen];
+	data->b[data->blen] = data->b[data->blen - 1];
+	data->b[data->blen - 1] = temp;
+	if (pr != 0 && data->print)
+		write(1, "sb\n", 3);
 	data->operations++;
 }

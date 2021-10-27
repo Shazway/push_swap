@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   operations_both.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 11:17:43 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/23 11:27:19 by tmoragli         ###   ########.fr       */
+/*   Updated: 2021/10/27 19:04:36 by krain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	rr(t_data *data)
+{
+	ra(data, 0);
+	rb(data, 0);
+	if (data->print)
+		write(1, "rr\n", 3);
+}
 
 void	rrr(t_data *data)
 {
@@ -19,14 +27,6 @@ void	rrr(t_data *data)
 	if (data->print)
 		write(1, "rrr\n", 4);
 	data->operations++;
-}
-
-void	rr(t_data *data)
-{
-	ra(data, 0);
-	rb(data, 0);
-	if (data->print)
-		write(1, "rr\n", 3);
 }
 
 void	ss(t_data *data)

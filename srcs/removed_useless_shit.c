@@ -6,15 +6,15 @@
 /*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 18:44:27 by krain             #+#    #+#             */
-/*   Updated: 2021/10/27 18:49:43 by krain            ###   ########.fr       */
+/*   Updated: 2021/10/27 19:14:50 by krain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int smallest_nb_a(t_data *data)
+int	smallest_nb_a(t_data *data)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i <= data->alen)
@@ -43,7 +43,8 @@ int	test_ra_s(t_data *data, int nb_ra)
 	}
 	return (nb_ra);
 }
-int test_s_a(t_data *data)
+
+int	test_s_a(t_data *data)
 {
 	int	i;
 	int	nb_ra;
@@ -82,7 +83,7 @@ void	b_move_smallest_a(t_data *data)
 					&& data->b[data->blen] < data->a[0])))
 			rra(data, 1);
 }
-//-------------------------------------------------------------------------
+
 int	test_ra_b(t_data *data, int nb_ra)
 {
 	int	i;
@@ -103,6 +104,7 @@ int	test_ra_b(t_data *data, int nb_ra)
 	}
 	return (nb_ra);
 }
+
 int	test_b_a(t_data *data)
 {
 	int	i;
@@ -128,6 +130,7 @@ int	test_b_a(t_data *data)
 		return (1);
 	return (0);
 }
+
 void	b_move_biggest_a(t_data *data)
 {
 	if (test_b_a(data) == 1)
@@ -141,9 +144,10 @@ void	b_move_biggest_a(t_data *data)
 					&& data->a[data->alen] < data->a[0])))
 			rra(data, 1);
 }
+
 int	biggest_nb_a(t_data *data)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i <= data->alen)
@@ -151,7 +155,7 @@ int	biggest_nb_a(t_data *data)
 			return (0);
 	return (1);
 }
-//-------------------------------------------------------------------------
+
 int	test_ra_m(t_data *data, int nb_ra)
 {
 	int	i;
@@ -172,7 +176,8 @@ int	test_ra_m(t_data *data, int nb_ra)
 	}
 	return (nb_ra);
 }
-int test_m_a(t_data *data)
+
+int	test_m_a(t_data *data)
 {
 	int	i;
 	int	nb_ra;
@@ -197,11 +202,12 @@ int test_m_a(t_data *data)
 		return (1);
 	return (0);
 }
+
 void	b_move_middle_a(t_data *data)
 {
 	if (test_m_a(data) == 1)
 		while (data->alen > 0
-			&& !(data->a[data->alen] > data->b[data->blen] 
+			&& !(data->a[data->alen] > data->b[data->blen]
 				&& data->b[data->blen] > data->a[0]))
 			ra(data, 1);
 	else
@@ -213,58 +219,21 @@ void	b_move_middle_a(t_data *data)
 
 void	four_or_five_elems(t_data *data)
 {
-	int highest;
+	void	(*move)(t_data *, int);
+	int		highest;
 
 	while (data->blen >= 0)
 	{
 		if (smallest_nb_a(data))
-		{
-			printf("SMALLEST NB FOUND :\n");
-			//print_stacks(data);
 			b_move_smallest_a(data);
-			print_stacks(data);
-			//rintf("-----------------\n");
-		}
 		else if (biggest_nb_a(data))
-		{
-			printf("BIGGEST NB FOUND :\n");
-			//print_stacks(data);
 			b_move_biggest_a(data);
-			print_stacks(data);
-			//rintf("-----------------\n");
-		}
 		else
-		{
-			printf("A MIDDLE NB FOUND :\n");
-			//print_stacks(data);
-			b_move_middle_a(data);	
-			print_stacks(data);
-			//printf("-----------------\n");
-		}
+			b_move_middle_a(data);
 		pa(data);
 	}
-	
 	highest = find_max_index(data->a, data->alen);
-	
-	void	(*move)(t_data *, int);
-	printf("a[%d] = %d\n", highest, data->a[highest]);
-	print_stacks(data);
-
-	if (highest > data->alen / 2)
-	{
-		//printf("%d rrbs is better with rb (blen = %d)\n", i, data->blen);
-		move = &ra;
-		highest = data->alen - highest + 1;
-	}
-	else
-		move = &rra;
-	while (highest > 0)
-	{
-		move(data, 1);
-		highest--;
-	}
-	printf("%d\n", highest);
-	print_stacks(data);
+	apply_best_move_a(data, highest);
 }
 
 void	b_move_smallest(t_data *data)
@@ -308,34 +277,16 @@ void	b_move_middle(t_data *data)
 				&& data->a[data->alen] < data->b[0]))
 			rrb(data, 1);
 }
+
 void	arrange_b_stack(t_data *data)
 {
-		if (smallest_nb(data))
-		{
-			printf("SMALLEST NB FOUND :\n");
-			print_stacks(data);
-			b_move_smallest(data);
-			print_stacks(data);
-			printf("-----------------\n");
-		}
-		else if (biggest_nb(data))
-		{
-			printf("BIGGEST NB FOUND :\n");
-			print_stacks(data);
-			b_move_biggest(data);
-			print_stacks(data);
-			printf("-----------------\n");
-		}
-		else
-		{
-			printf("A MIDDLE NB FOUND :\n");
-			print_stacks(data);
-			b_move_middle(data);
-			print_stacks(data);
-			printf("-----------------\n");
-		}
+	if (smallest_nb(data))
+		b_move_smallest(data);
+	else if (biggest_nb(data))
+		b_move_biggest(data);
+	else
+		b_move_middle(data);
 }
-
 
 int	test_s(t_data *data)
 {
