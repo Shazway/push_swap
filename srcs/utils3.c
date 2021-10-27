@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
+/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 22:18:25 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/27 18:50:32 by krain            ###   ########.fr       */
+/*   Updated: 2021/10/27 22:58:39 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_strlen(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str && str[i])
 		i++;
 	return (i - 1);
 }
@@ -69,15 +69,24 @@ int	what_len(char **argv, int len)
 	return (len);
 }
 
-long	ft_atoi(char *str, int i, int sign)
+long	ft_atoi(char *str)
 {
 	long	nb;
+	int		sign;
+	int		i;
 
 	nb = 0;
+	sign = 1;
+	i = 0;
 	while (str[i] && (str[i] == ' ' || str[i] == '\n' || str[i] == '\t'
 			|| str[i] == '\v' || str[i] == '\f'
-			|| str[i] == '\r' || str[i] == '-'))
+			|| str[i] == '\r'))
 		i++;
+	if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		nb = nb * 10 + (str[i] - 48);

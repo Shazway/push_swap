@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 12:38:17 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/27 23:20:03 by tmoragli         ###   ########.fr       */
+/*   Updated: 2021/10/27 23:09:48 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ void	four_or_five_elems(t_data *data);
 /*
 **		errors.c errors2.c
 */
-int		errors_check(char **argv, int argc, int i, t_data *data);
+int		errors_check(char *args, int argc, int i, t_data *data);
 
-int		nb_only(char **str);
+int		nb_only(char *args);
 int		increm_j(char **argv, int i, int j);
-int		check_signs(char **argv);
-int		are_there_numbers(char **argv);
+int		check_signs(char *args);
+int		are_there_numbers(char *args);
 
 /*
 **		long_stack_utils.c
@@ -99,12 +99,12 @@ void	sort_c_tab(t_data *data);
 int		is_a_sorted(t_data *data);
 void	ft_free(t_data *data);
 int		smallest_in_a(t_data *data);
-void	fill_tabs(char **argv, t_data *data, int i, int j);
+void	fill_tabs(char *argv, t_data *data);
 
 int		decrem_j(char **argv, int i, int j);
 int		end_of_argv(char **argv);
 int		ft_strlen(char *str);
 int		what_len(char **argv, int len);
-long	ft_atoi(char *str, int i, int sign);
+long	ft_atoi(char *str);
 
 #endif

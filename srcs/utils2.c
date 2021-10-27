@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 11:32:34 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/28 00:29:45 by tmoragli         ###   ########.fr       */
+/*   Updated: 2021/10/27 23:18:26 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,42 +50,29 @@ int	smallest_in_a(t_data *data)
 
 int	fill(t_data *data, int k, int i)
 {
-	//printf("i = %d\n", i);
-	//printf("k = %d\n", k);
-	if (data->alen >= 0 && k < data->alen)
+	if (data->alen >= 0)
 	{
 		data->a[k] = i;
 		data->c[k] = data->a[k];
 	}
-	//print_stacks(data);
 	return (1);
 }
 
-void	fill_tabs(char **argv, t_data *data, int i, int j)
+void	fill_tabs(char *args, t_data *data)
 {
-	int	k;
-	int	sign;
+	int		i;
+	int		j;
 
-	sign = 1;
-	k = 0;
-	while (i >= 1)
+	j = -1;
+	i = 0;
+	while (args && args[i])
 	{
-		if (i == -1)
+		while (args[i] && args[i] == ' ')
+			i++;
+		if (!args[i])
 			break ;
-		j = ft_strlen(argv[i]);
-		while (j >= 0)
-		{
-			j = decrem_j(argv, i, j);
-			if (argv[i][j] == '-')
-				sign *= -1;
-			sign = fill(data, k, ft_atoi(argv[i], j, sign));
-			k++;
-			if (j <= 0)
-				break ;
-			j--;
-			while (j > 0 && (argv[i][j] == ' ' || argv[i][j] == '-'))
-				j--;
-		}
-		i--;
+		fill(data, ++j, ft_atoi(args + i));
+		while (args[i] && args[i] != ' ')
+			i++;
 	}
 }

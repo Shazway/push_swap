@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 17:57:08 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/26 17:48:12 by tmoragli         ###   ########.fr       */
+/*   Updated: 2021/10/27 23:03:01 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,12 @@ int	is_duplicate(t_data *data)
 	return (0);
 }
 
-int	check_nb(char *str, int j, int count, int sign)
+int	check_nb(char *str)
 {
 	long	nb;
 
-	nb = ft_atoi(str, j, sign);
-	if (nb == -2147483648)
-		return (0);
-	if (nb < 0)
-		nb *= -1;
-	if (nb > 2147483647 || count > 10)
-		return (1);
-	return (0);
+	nb = ft_atoi(str);
+	return (nb > 2147483647 || nb < -2147483648);
 }
 
 int	count_digits(char **argv, int j, int i)
@@ -62,48 +56,40 @@ int	count_digits(char **argv, int j, int i)
 	return (count);
 }
 
-int	nb_limits(char **argv, int sign, int i, int j)
+int	nb_limits(char *args)
 {
 	int	count;
+	int	sign;
+	int	i;
 
-	while (argv[i])
+	count = 0;
+	sign = 1;
+	i = 0;
+	while (args && args[i])
 	{
-		j = 0;
-		count = 0;
-		sign = 1;
-		while (argv[i][j])
-		{
-			if (argv[i][j] == '-')
-			{
-				sign *= -1;
-				j = increm_j(argv, i, j);
-			}
-			count = count_digits(argv, j, i);
-			if (count > 0)
-				break ;
-			j++;
-		}
-		if (count >= 10)
-			if (check_nb(argv[i], j, count - 1, sign))
-				return (1);
-		i++;
+		while (args[i] && args[i] == ' ')
+			i++;
+		if (check_nb(args + i))
+			return (1);
+		while (args[i] && args[i] != ' ')
+			i++;
 	}
 	return (0);
 }
 
-int	errors_check(char **argv, int argc, int i, t_data *data)
+int	errors_check(char *args, int argc, int i, t_data *data)
 {
 	if (i == 0)
 	{
 		if (argc <= 1)
 			return (1);
-		if (check_signs(argv))
+		if (check_signs(args))
 			return (1);
-		if (are_there_numbers(argv))
+		if (are_there_numbers(args))
 			return (1);
-		if (nb_only(argv))
+		if (nb_only(args))
 			return (1);
-		if (nb_limits(argv, 1, 1, 0))
+		if (nb_limits(args))
 			return (1);
 	}
 	else if (is_duplicate(data) == 1)
