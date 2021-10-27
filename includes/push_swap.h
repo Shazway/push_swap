@@ -6,7 +6,7 @@
 /*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 12:38:17 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/27 18:42:51 by krain            ###   ########.fr       */
+/*   Updated: 2021/10/27 18:53:36 by krain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,8 @@ int		check_signs(char **argv);
 int		are_there_numbers(char **argv);
 
 void	best_move_for_b(t_data *data);
-int find_max_index(int *stack, int len);
+int		find_max_index(int *stack, int len);
 void	best_move_for_a(t_data *data);
 void	apply_best_move_a(t_data *data, int i);
-
-
 
 #endif

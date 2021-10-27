@@ -6,7 +6,7 @@
 /*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 00:08:17 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/27 17:47:09 by krain            ###   ########.fr       */
+/*   Updated: 2021/10/27 18:54:32 by krain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	sort_long_stack(t_data *data)
 		bottom_scan = bot_scan(data, 0);
 		top_scan = roof_scan(data, 0);
 		move_nb_to_top(data, top_scan, bottom_scan);
-		//arrange_b_stack(data);
 		best_move_for_b(data);
 		pb(data);
 		count--;
@@ -56,7 +55,6 @@ void	sort_long_stack(t_data *data)
 	s_in_a = smallest_in_a(data);
 	while (data->a[data->alen] != s_in_a)
 		ra(data, 1);
-	//print_stacks(data);
 }
 
 void	push_swap(t_data *data)
