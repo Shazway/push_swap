@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 11:32:34 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/27 18:50:18 by krain            ###   ########.fr       */
+/*   Updated: 2021/10/28 00:29:45 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,14 @@ int	smallest_in_a(t_data *data)
 
 int	fill(t_data *data, int k, int i)
 {
-	if (data->alen >= 0)
+	//printf("i = %d\n", i);
+	//printf("k = %d\n", k);
+	if (data->alen >= 0 && k < data->alen)
 	{
 		data->a[k] = i;
 		data->c[k] = data->a[k];
 	}
+	//print_stacks(data);
 	return (1);
 }
 

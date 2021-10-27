@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 12:38:17 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/27 19:08:59 by krain            ###   ########.fr       */
+/*   Updated: 2021/10/27 23:20:03 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,18 @@
 
 typedef struct s_data
 {
-	int	*a;
-	int	*b;
-	int	*c;
-	int	alen;
-	int	blen;
-	int	clen;
-	int	end_chunk;
-	int	start_chunk;
-	int	chunk_size;
-	int	print;
-	int	operations;
+	int		*a;
+	int		*b;
+	int		*c;
+	int		alen;
+	int		blen;
+	int		clen;
+	int		end_chunk;
+	int		start_chunk;
+	int		chunk_size;
+	int		print;
+	int		operations;
+	char	**arg_dup;
 }	t_data;
 
 /*

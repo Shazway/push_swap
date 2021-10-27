@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   b.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 16:12:34 by krain             #+#    #+#             */
-/*   Updated: 2021/10/27 18:54:22 by krain            ###   ########.fr       */
+/*   Updated: 2021/10/27 22:58:58 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	check_b_insert(t_data *data, int index)
 		return (1);
 	return (0);
 }
-
+	
 void	best_move_for_b(t_data *data)
 {
 	int		i;
