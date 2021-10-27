@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 11:18:56 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/27 14:40:34 by tmoragli         ###   ########.fr       */
+/*   Updated: 2021/10/27 18:49:38 by krain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	sort_c_tab(t_data *data)
 	{
 		i = 0;
 		breakcondition = 0;
-		while (i < data->clen - 1)
+		while (i < data->clen)
 		{
 			if (data->c[i] > data->c[i + 1])
 			{
@@ -92,26 +92,4 @@ void	sort_c_tab(t_data *data)
 		if (breakcondition == 0)
 			break ;
 	}
-}
-
-int	smallest_nb(t_data *data)
-{
-	int	i;
-
-	i = -1;
-	while (++i <= data->blen)
-		if (data->b[i] < data->b[data->blen])
-			return (0);
-	return (1);
-}
-
-int	biggest_nb(t_data *data)
-{
-	int	i;
-
-	i = -1;
-	while (++i <= data->blen)
-		if (data->b[i] > data->a[data->alen])
-			return (0);
-	return (1);
 }

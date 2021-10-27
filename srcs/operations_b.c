@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   operations_b.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 11:12:50 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/23 11:28:33 by tmoragli         ###   ########.fr       */
+/*   Updated: 2021/10/27 18:48:33 by krain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_data *data)
+void	pb(t_data *data)
 {
-	if (data->blen == -1)
+	if (data->alen == -1)
 		return ;
-	data->alen++;
-	data->a[data->alen] = data->b[data->blen];
-	data->blen--;
+	data->blen++;
+	data->b[data->blen] = data->a[data->alen];
+	data->alen--;
 	if (data->print)
-		write(1, "pa\n", 3);
+		write(1, "pb\n", 3);
 	data->operations++;
 }
 

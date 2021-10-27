@@ -4,7 +4,20 @@ CXXFLAGS = -Wall -Werror -Wextra -fsanitize=address -g -Iincludes
 
 NAME = push_swap
 
-SRCS = srcs/push_swap.c srcs/b_moves.c srcs/compare_tests.c srcs/elems.c srcs/long_stack_utils.c srcs/operations_a.c srcs/operations_b.c srcs/operations_both.c srcs/scans.c srcs/utils.c srcs/utils2.c srcs/errors.c srcs/utils3.c srcs/errors2.c
+SRCS =	srcs/push_swap.c		\
+		srcs/elems.c			\
+		srcs/long_stack_utils.c	\
+		srcs/operations_a.c		\
+		srcs/operations_b.c		\
+		srcs/operations_both.c	\
+		srcs/scans.c			\
+		srcs/utils.c			\
+		srcs/utils2.c			\
+		srcs/errors.c			\
+		srcs/utils3.c			\
+		srcs/errors2.c			\
+		srcs/b.c				\
+		srcs/a.c				\
 
 OBJ = $(SRCS:.c=.o)
 
