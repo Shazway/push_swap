@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 00:08:30 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/27 19:03:55 by krain            ###   ########.fr       */
+/*   Updated: 2021/10/28 16:38:51 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	pa(t_data *data)
 	data->blen--;
 	if (data->print)
 		write(1, "pa\n", 3);
-	data->operations++;
 }
 
 void	ra(t_data *data, int pr)
@@ -41,7 +40,6 @@ void	ra(t_data *data, int pr)
 	data->a[0] = temp;
 	if (pr != 0 && data->print)
 		write(1, "ra\n", 3);
-	data->operations++;
 }
 
 void	rra(t_data *data, int pr)
@@ -61,7 +59,6 @@ void	rra(t_data *data, int pr)
 	data->a[data->alen] = temp;
 	if (pr != 0 && data->print)
 		write(1, "rra\n", 4);
-	data->operations++;
 }
 
 void	sa(t_data *data, int pr)
@@ -75,5 +72,4 @@ void	sa(t_data *data, int pr)
 	data->a[data->alen - 1] = temp;
 	if (pr != 0 && data->print)
 		write(1, "sa\n", 3);
-	data->operations++;
 }

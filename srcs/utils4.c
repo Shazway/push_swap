@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_both.c                                  :+:      :+:    :+:   */
+/*   utils4.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/23 11:17:43 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/28 16:39:14 by tmoragli         ###   ########.fr       */
+/*   Created: 2021/10/28 01:39:27 by tmoragli          #+#    #+#             */
+/*   Updated: 2021/10/28 16:28:26 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rr(t_data *data)
+char	*concatenate(char **argv)
 {
-	ra(data, 0);
-	rb(data, 0);
-	if (data->print)
-		write(1, "rr\n", 3);
+	int		i;
+	char	*dest;
+
+	i = 0;
+	dest = NULL;
+	while (argv && argv[++i])
+	{
+		ft_strjoin_to(&dest, argv[i]);
+		ft_strjoin_to(&dest, " ");
+	}
+	return (dest);
 }
 
-void	rrr(t_data *data)
+void	ft_strjoin_to(char **dest, char *s2)
 {
-	rra(data, 0);
-	rrb(data, 0);
-	if (data->print)
-		write(1, "rrr\n", 4);
-}
+	char		*temp;
 
-void	ss(t_data *data)
-{
-	sa(data, 0);
-	sb(data, 0);
-	if (data->print)
-		write(1, "ss\n", 3);
+	temp = *dest;
+	*dest = ft_strjoin(*dest, s2);
+	free(temp);
 }

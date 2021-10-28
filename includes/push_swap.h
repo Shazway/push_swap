@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 12:38:17 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/27 23:09:48 by magostin         ###   ########.fr       */
+/*   Updated: 2021/10/28 16:38:30 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ typedef struct s_data
 	int		start_chunk;
 	int		chunk_size;
 	int		print;
-	int		operations;
-	char	**arg_dup;
 }	t_data;
 
 /*
@@ -90,11 +88,13 @@ int		bot_scan(t_data *data, int i);
 int		roof_scan(t_data *data, int i);
 
 /*
-**		utils.c utils2.c utils3.c
+**		utils.c utils2.c utils3.c utils4.c
 */
 void	print_stacks(t_data *data);
 int		ft_allocate(t_data **data, int len);
 void	sort_c_tab(t_data *data);
+int		ft_strlcpy(char *dst, char *src, size_t dstsize);
+char	*ft_strjoin(char *s1, char *s2);
 
 int		is_a_sorted(t_data *data);
 void	ft_free(t_data *data);
@@ -106,5 +106,8 @@ int		end_of_argv(char **argv);
 int		ft_strlen(char *str);
 int		what_len(char **argv, int len);
 long	ft_atoi(char *str);
+
+char	*concatenate(char **argv);
+void	ft_strjoin_to(char **dest, char *s2);
 
 #endif

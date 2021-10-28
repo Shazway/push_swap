@@ -6,11 +6,48 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 11:18:56 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/27 23:36:44 by tmoragli         ###   ########.fr       */
+/*   Updated: 2021/10/28 17:07:47 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	int		len_s1;
+	int		len_s2;
+	char	*dest;
+
+	len_s1 = ft_strlen(s1) + 1;
+	len_s2 = ft_strlen(s2) + 1;
+	dest = malloc((len_s1 + len_s2 + 1) * sizeof(char));
+	if (!(dest))
+		return (0);
+	ft_strlcpy(dest, s1, len_s1 + 1);
+	ft_strlcpy(dest + len_s1, s2, len_s2 + 1);
+	dest[len_s1 + len_s2] = 0;
+	return (dest);
+}
+
+int	ft_strlcpy(char *dst, char *src, size_t dstsize)
+{
+	size_t	i;
+
+	i = 0;
+	if (!src)
+		return (0);
+	if (!dstsize)
+		return (ft_strlen(src));
+	while (src[i] && i < dstsize - 1)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = 0;
+	while (src[i])
+		i++;
+	return (ft_strlen(src));
+}
 
 void	print_stacks(t_data *data)
 {
@@ -50,11 +87,10 @@ int	ft_allocate(t_data **data, int len)
 	(*data)->clen = len;
 	(*data)->start_chunk = 0;
 	(*data)->print = 1;
-	(*data)->operations = 0;
 	if ((*data)->alen < 499)
 		(*data)->chunk_size = (((*data)->alen + 1) / 5);
 	else
-		(*data)->chunk_size = ((*data)->alen + 1) / 11;
+		(*data)->chunk_size = ((*data)->alen + 1) / 13;
 	(*data)->end_chunk = (*data)->chunk_size - 1;
 	(*data)->a = malloc(sizeof(int) * (len + 1));
 	if (!(*data)->a)

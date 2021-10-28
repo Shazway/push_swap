@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations_b.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 11:12:50 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/27 19:04:21 by krain            ###   ########.fr       */
+/*   Updated: 2021/10/28 16:39:00 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	pb(t_data *data)
 	data->alen--;
 	if (data->print)
 		write(1, "pb\n", 3);
-	data->operations++;
 }
 
 void	rb(t_data *data, int pr)
@@ -41,7 +40,6 @@ void	rb(t_data *data, int pr)
 	data->b[0] = temp;
 	if (pr != 0 && data->print)
 		write(1, "rb\n", 3);
-	data->operations++;
 }
 
 void	rrb(t_data *data, int pr)
@@ -61,7 +59,6 @@ void	rrb(t_data *data, int pr)
 	data->b[data->blen] = temp;
 	if (pr != 0 && data->print)
 		write(1, "rrb\n", 4);
-	data->operations++;
 }
 
 void	sb(t_data *data, int pr)
@@ -75,5 +72,4 @@ void	sb(t_data *data, int pr)
 	data->b[data->blen - 1] = temp;
 	if (pr != 0 && data->print)
 		write(1, "sb\n", 3);
-	data->operations++;
 }

@@ -13,8 +13,9 @@ SRCS =	srcs/push_swap.c		\
 		srcs/scans.c			\
 		srcs/utils.c			\
 		srcs/utils2.c			\
-		srcs/errors.c			\
 		srcs/utils3.c			\
+		srcs/utils4.c			\
+		srcs/errors.c			\
 		srcs/errors2.c			\
 		srcs/b.c				\
 		srcs/a.c				\

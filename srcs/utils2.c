@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 11:32:34 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/27 23:18:26 by magostin         ###   ########.fr       */
+/*   Updated: 2021/10/28 15:47:37 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	fill_tabs(char *args, t_data *data)
 	int		i;
 	int		j;
 
-	j = -1;
+	j = data->alen + 1;
 	i = 0;
 	while (args && args[i])
 	{
@@ -71,7 +71,7 @@ void	fill_tabs(char *args, t_data *data)
 			i++;
 		if (!args[i])
 			break ;
-		fill(data, ++j, ft_atoi(args + i));
+		fill(data, --j, ft_atoi(args + i));
 		while (args[i] && args[i] != ' ')
 			i++;
 	}

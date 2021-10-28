@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 22:15:41 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/27 23:17:29 by magostin         ###   ########.fr       */
+/*   Updated: 2021/10/28 01:41:41 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	nb_only(char *args)
 	while (args[i])
 	{
 		if ((args[i] < '0'
-			|| args[i] > '9') && args[i] != ' ' && args[i] != '-')
+				|| args[i] > '9') && args[i] != ' ' && args[i] != '-')
 			return (1);
 		i++;
 	}
