@@ -6,7 +6,7 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 00:08:17 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/28 17:18:39 by tmoragli         ###   ########.fr       */
+/*   Updated: 2021/10/28 23:47:39 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,9 @@ int	main(int argc, char **argv)
 		ft_free(data);
 		return (1);
 	}
+	print_stacks(data);
 	push_swap(data);
+	print_stacks(data);
 	ft_free(data);
 	return (0);
 }
