@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 00:08:17 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/28 23:02:17 by magostin         ###   ########.fr       */
+/*   Updated: 2021/10/28 23:04:11 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,7 @@ int	main(int argc, char **argv)
 		ft_free(data);
 		return (1);
 	}
-	print_stacks(data);
 	push_swap(data);
-	//print_stacks(data);
 	ft_free(data);
 	return (0);
 }
