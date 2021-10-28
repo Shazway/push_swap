@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   long_stack_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 12:42:47 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/28 01:41:45 by tmoragli         ###   ########.fr       */
+/*   Updated: 2021/10/28 22:40:18 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	move_nb_to_top(t_data *data, int top_scan, int bottom_scan)
 			top_scan++;
 		}
 	}
-	if (data->alen - bottom_scan > top_scan + 1)
+	else if (data->alen - bottom_scan > top_scan + 1)
 	{
 		while (bottom_scan >= 0)
 		{
@@ -30,7 +30,7 @@ void	move_nb_to_top(t_data *data, int top_scan, int bottom_scan)
 			bottom_scan--;
 		}
 	}
-	if (data->alen - bottom_scan == top_scan + 1)
+	else if (data->alen - bottom_scan == top_scan + 1)
 	{
 		while (bottom_scan >= 0)
 		{
@@ -44,5 +44,7 @@ int	next_chunk(t_data *data)
 {
 	data->start_chunk = data->start_chunk + data->chunk_size;
 	data->end_chunk = data->chunk_size + data->end_chunk;
+	if (data->end_chunk > data->clen)
+		data->end_chunk = data->clen;
 	return (data->chunk_size);
 }

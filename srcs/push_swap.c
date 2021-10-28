@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 00:08:17 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/28 17:18:39 by tmoragli         ###   ########.fr       */
+/*   Updated: 2021/10/28 22:57:21 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ void	sort_long_stack(t_data *data)
 	int	count;
 	int	s_in_a;
 
-	count = data->chunk_size - 1;
+	data->print = 1;
+	count = data->chunk_size;
 	sort_c_tab(data);
 	while (data->alen >= 0)
 	{
@@ -45,9 +46,11 @@ void	sort_long_stack(t_data *data)
 		top_scan = roof_scan(data, 0);
 		move_nb_to_top(data, top_scan, bottom_scan);
 		best_move_for_b(data);
+		//printf("=> chunk[%d -> %d]\n", data->c[data->start_chunk], data->c[data->end_chunk]);
+		//print_stacks(data);
 		pb(data);
 		count--;
-		if (count == -1 && data->alen > 1)
+		if (count == 0 && data->alen > 1)
 			count = next_chunk(data);
 	}
 	while (data->blen >= 0)
@@ -93,6 +96,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	push_swap(data);
+	//print_stacks(data);
 	ft_free(data);
 	return (0);
 }

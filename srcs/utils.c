@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 11:18:56 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/28 17:07:47 by tmoragli         ###   ########.fr       */
+/*   Updated: 2021/10/28 22:58:57 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,9 @@ int	ft_allocate(t_data **data, int len)
 	(*data)->start_chunk = 0;
 	(*data)->print = 1;
 	if ((*data)->alen < 499)
-		(*data)->chunk_size = (((*data)->alen + 1) / 5);
+		(*data)->chunk_size = (((*data)->alen + 1) / 6);
 	else
-		(*data)->chunk_size = ((*data)->alen + 1) / 13;
+		(*data)->chunk_size = ((*data)->alen + 1) / 12;
 	(*data)->end_chunk = (*data)->chunk_size - 1;
 	(*data)->a = malloc(sizeof(int) * (len + 1));
 	if (!(*data)->a)

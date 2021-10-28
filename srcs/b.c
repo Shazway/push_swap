@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   b.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 16:12:34 by krain             #+#    #+#             */
-/*   Updated: 2021/10/28 01:32:23 by tmoragli         ###   ########.fr       */
+/*   Updated: 2021/10/28 22:51:57 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ int	check_b_insert(t_data *data, int index)
 	prev = index + 1;
 	if (index == data->blen)
 		prev = 0;
-	if (data->b[index] < data->a[data->alen]
-		&& data->b[prev] > data->a[data->alen])
+	if (data->b[index] <= data->a[data->alen]
+		&& data->b[prev] >= data->a[data->alen])
 		return (1);
 	return (0);
 }
