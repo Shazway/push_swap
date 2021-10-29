@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 15:45:33 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/29 17:13:11 by tmoragli         ###   ########.fr       */
+/*   Updated: 2021/10/29 15:27:49 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,19 +85,13 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	if (ft_allocate(data, (what_len(argv, 0) - 1)))
-	{
-		ft_free(data, args, 0);
-		return (1);
-	}
+		return (ft_free(data, args));
 	fill_tabs(args, data);
-	free(args);
 	if (data->alen != 0 && errors_check(args, argc, 1, data))
 	{
 		write(1, "Error\n", 6);
-		ft_free(data, args, 0);
-		return (1);
+		return (ft_free(data, args));
 	}
 	push_swap(data);
-	ft_free(data, args, 0);
-	return (0);
+	return (ft_free(data, args));
 }

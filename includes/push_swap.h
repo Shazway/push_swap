@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 15:45:53 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/29 17:12:56 by tmoragli         ###   ########.fr       */
+/*   Updated: 2021/10/29 15:27:27 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int		ft_strlcpy(char *dst, char *src, size_t dstsize);
 char	*ft_strjoin(char *s1, char *s2);
 
 int		is_a_sorted(t_data *data);
-void	ft_free(t_data *data, char *args, int i);
+int		ft_free(t_data *data, char *args);
 int		smallest_in_a(t_data *data);
 void	fill_tabs(char *argv, t_data *data);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 17:06:19 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/29 17:11:14 by tmoragli         ###   ########.fr       */
+/*   Updated: 2021/10/29 15:29:00 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ int	is_a_sorted(t_data *data)
 	return (1);
 }
 
-void	ft_free(t_data *data, char *args, int i)
+int	ft_free(t_data *data, char *args)
 {
-	if (i)
-		free(args);
+	free(args);
 	free(data->a);
 	free(data->b);
 	free(data->c);
 	free(data->a_move);
 	free(data->b_move);
 	free(data);
+	return (0);
 }
 
 int	smallest_in_a(t_data *data)
