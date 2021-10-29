@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/23 11:18:56 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/29 01:05:28 by magostin         ###   ########.fr       */
+/*   Created: 2021/10/29 15:54:05 by tmoragli          #+#    #+#             */
+/*   Updated: 2021/10/29 16:37:49 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,30 +106,4 @@ int	ft_allocate(t_data *data, int len)
 	if (!data->a || !data->b || !data->c)
 		return (1);
 	return (0);
-}
-
-void	sort_c_tab(t_data *data)
-{
-	int	i;
-	int	temp;
-	int	breakcondition;
-
-	while (1)
-	{
-		i = 0;
-		breakcondition = 0;
-		while (i < data->clen)
-		{
-			if (data->c[i] > data->c[i + 1])
-			{
-				temp = data->c[i];
-				data->c[i] = data->c[i + 1];
-				data->c[i + 1] = temp;
-				breakcondition = 1;
-			}
-			i++;
-		}
-		if (breakcondition == 0)
-			break ;
-	}
 }

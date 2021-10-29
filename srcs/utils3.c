@@ -6,7 +6,7 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 22:18:25 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/28 15:39:04 by tmoragli         ###   ########.fr       */
+/*   Updated: 2021/10/29 16:40:05 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,5 @@ long	ft_atoi(char *str)
 		nb = nb * 10 + (str[i] - 48);
 		i++;
 	}
-	//printf("NB = %ld\n", nb);
 	return (nb * sign);
 }

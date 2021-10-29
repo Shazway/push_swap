@@ -19,6 +19,7 @@ SRCS =	srcs/push_swap.c		\
 		srcs/errors2.c			\
 		srcs/b.c				\
 		srcs/a.c				\
+		srcs/apply_moves.c		\
 
 OBJ = $(SRCS:.c=.o)
 

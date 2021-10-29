@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/09 12:38:17 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/29 01:19:03 by magostin         ###   ########.fr       */
+/*   Created: 2021/10/29 15:45:53 by tmoragli          #+#    #+#             */
+/*   Updated: 2021/10/29 17:12:56 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@
 
 typedef struct s_data
 {
-	int		*a;
-	int		*b;
-	int		*c;
+	int				*a;
+	int				*b;
+	int				*c;
 	struct s_move	*a_move;
 	struct s_move	*b_move;
-	int		alen;
-	int		blen;
-	int		clen;
-	int		end_chunk;
-	int		start_chunk;
-	int		chunk_size;
-	int		print;
+	int				alen;
+	int				blen;
+	int				clen;
+	int				end_chunk;
+	int				start_chunk;
+	int				chunk_size;
+	int				print;
 }	t_data;
 
 typedef struct s_move
@@ -103,12 +103,11 @@ int		roof_scan(t_data *data);
 */
 void	print_stacks(t_data *data);
 int		ft_allocate(t_data *data, int len);
-void	sort_c_tab(t_data *data);
 int		ft_strlcpy(char *dst, char *src, size_t dstsize);
 char	*ft_strjoin(char *s1, char *s2);
 
 int		is_a_sorted(t_data *data);
-void	ft_free(t_data *data);
+void	ft_free(t_data *data, char *args, int i);
 int		smallest_in_a(t_data *data);
 void	fill_tabs(char *argv, t_data *data);
 
@@ -120,5 +119,17 @@ long	ft_atoi(char *str);
 
 char	*concatenate(char **argv);
 void	ft_strjoin_to(char **dest, char *s2);
+int		highest_b(t_data *data);
+int		min_ope(int ope[4]);
+void	sort_c_tab(t_data *data);
+
+/*
+**	apply_moves.c
+*/
+void	reset_moves(t_move *a, t_move *b);
+void	apply_right_moves(t_data *data, t_move *a, t_move *b);
+void	apply_left_moves(t_data *data, t_move *a, t_move *b);
+void	best_operations(t_move *a, t_move *b, int i);
+int		ft_max(int a, int b);
 
 #endif
