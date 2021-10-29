@@ -6,7 +6,7 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 15:54:05 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/29 16:37:49 by tmoragli         ###   ########.fr       */
+/*   Updated: 2021/10/29 23:17:41 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,9 @@ int	ft_allocate(t_data *data, int len)
 	data->start_chunk = 0;
 	data->print = 1;
 	if (data->alen < 499)
-		data->chunk_size = ((data->alen + 1) / 6);
+		data->chunk_size = ((data->alen + 1) / 5);
 	else
-		data->chunk_size = (data->alen + 1) / 12;
+		data->chunk_size = (data->alen + 1) / 11;
 	data->end_chunk = data->chunk_size - 1;
 	data->a = malloc(sizeof(int) * (len + 1));
 	data->b = malloc(sizeof(int) * (len + 1));

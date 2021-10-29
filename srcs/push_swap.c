@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/29 15:45:33 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/29 15:27:49 by magostin         ###   ########.fr       */
+/*   Created: 2021/10/29 17:33:39 by tmoragli          #+#    #+#             */
+/*   Updated: 2021/10/29 23:10:07 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	sort_long_stack(t_data *data)
 		best_move_a(data, top_scan, bottom_scan);
 		best_move_b(data);
 		apply_moves(data);
+		//print_stacks(data);
 		pb(data);
 		count--;
 		if (count == 0 && data->alen > 1)
@@ -93,5 +94,6 @@ int	main(int argc, char **argv)
 		return (ft_free(data, args));
 	}
 	push_swap(data);
+	//print_stacks(data);
 	return (ft_free(data, args));
 }
