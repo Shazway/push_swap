@@ -1,6 +1,6 @@
 CXX = clang
 
-CXXFLAGS = -Wall -Werror -Wextra -fsanitize=address -g -Iincludes
+CXXFLAGS = -Wall -Werror -Wextra -Iincludes
 
 NAME = push_swap
 
