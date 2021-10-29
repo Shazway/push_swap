@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 00:08:17 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/28 23:04:11 by magostin         ###   ########.fr       */
+/*   Updated: 2021/10/29 01:20:36 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,11 @@ void	sort_long_stack(t_data *data)
 	sort_c_tab(data);
 	while (data->alen >= 0)
 	{
-		bottom_scan = bot_scan(data, 0);
-		top_scan = roof_scan(data, 0);
-		move_nb_to_top(data, top_scan, bottom_scan);
-		best_move_for_b(data);
-		//printf("=> chunk[%d -> %d]\n", data->c[data->start_chunk], data->c[data->end_chunk]);
-		//print_stacks(data);
+		bottom_scan = bot_scan(data);
+		top_scan = roof_scan(data);
+		best_move_a(data, top_scan, bottom_scan);
+		best_move_b(data);
+		apply_moves(data);
 		pb(data);
 		count--;
 		if (count == 0 && data->alen > 1)
@@ -62,13 +61,12 @@ void	sort_long_stack(t_data *data)
 
 void	push_swap(t_data *data)
 {
-	if (is_a_sorted(data) == 1)
-	{
-		if (data->alen <= 4)
-			sort_small_stack(data);
-		else if (data->alen > 4)
-			sort_long_stack(data);
-	}
+	if (!is_a_sorted(data))
+		return ;
+	if (data->alen <= 4)
+		sort_small_stack(data);
+	else if (data->alen > 4)
+		sort_long_stack(data);
 }
 
 int	main(int argc, char **argv)
@@ -76,20 +74,25 @@ int	main(int argc, char **argv)
 	t_data	*data;
 	char	*args;
 
+	data = malloc(sizeof(t_data));
 	args = concatenate(argv);
-	if (errors_check(args, argc, 0, NULL) == 1)
+	if (errors_check(args, argc, 0, NULL))
 	{
 		if (argc > 1)
 			write(1, "Error\n", 6);
+		free(args);
+		free(data);
 		return (1);
 	}
-	if (ft_allocate(&data, (what_len(argv, 0) - 1)) == 0)
+	if (ft_allocate(data, (what_len(argv, 0) - 1)))
 	{
 		ft_free(data);
+		free(args);
 		return (1);
 	}
 	fill_tabs(args, data);
-	if (data->alen != 0 && errors_check(args, argc, 1, data) == 1)
+	free(args);
+	if (data->alen != 0 && errors_check(args, argc, 1, data))
 	{
 		write(1, "Error\n", 6);
 		ft_free(data);

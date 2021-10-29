@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 12:38:17 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/28 16:38:30 by tmoragli         ###   ########.fr       */
+/*   Updated: 2021/10/29 01:19:03 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ typedef struct s_data
 	int		*a;
 	int		*b;
 	int		*c;
+	struct s_move	*a_move;
+	struct s_move	*b_move;
 	int		alen;
 	int		blen;
 	int		clen;
@@ -29,6 +31,13 @@ typedef struct s_data
 	int		chunk_size;
 	int		print;
 }	t_data;
+
+typedef struct s_move
+{
+	int		left_i;
+	int		right_i;
+	int		i;
+}	t_move;
 
 /*
 **		a.c
@@ -39,8 +48,10 @@ void	apply_best_move_a(t_data *data, int i);
 /*
 **		b.c
 */
-void	best_move_for_b(t_data *data);
+void	best_move_b(t_data *data);
 int		find_max_index(int *stack, int len);
+void	apply_moves(t_data *data);
+void	best_move_a(t_data *data, int top_scan, int bottom_scan);
 
 /*
 **		elems.c
@@ -84,14 +95,14 @@ void	ss(t_data *data);
 /*
 **		scans.c
 */
-int		bot_scan(t_data *data, int i);
-int		roof_scan(t_data *data, int i);
+int		bot_scan(t_data *data);
+int		roof_scan(t_data *data);
 
 /*
 **		utils.c utils2.c utils3.c utils4.c
 */
 void	print_stacks(t_data *data);
-int		ft_allocate(t_data **data, int len);
+int		ft_allocate(t_data *data, int len);
 void	sort_c_tab(t_data *data);
 int		ft_strlcpy(char *dst, char *src, size_t dstsize);
 char	*ft_strjoin(char *s1, char *s2);

@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 12:42:47 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/28 22:40:18 by magostin         ###   ########.fr       */
+/*   Updated: 2021/10/28 23:42:40 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,7 @@ void	move_nb_to_top(t_data *data, int top_scan, int bottom_scan)
 			top_scan++;
 		}
 	}
-	else if (data->alen - bottom_scan > top_scan + 1)
-	{
-		while (bottom_scan >= 0)
-		{
-			rra(data, 1);
-			bottom_scan--;
-		}
-	}
-	else if (data->alen - bottom_scan == top_scan + 1)
+	else if (data->alen - bottom_scan >= top_scan + 1)
 	{
 		while (bottom_scan >= 0)
 		{

@@ -6,17 +6,16 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 12:48:59 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/28 22:38:41 by magostin         ###   ########.fr       */
+/*   Updated: 2021/10/28 23:40:47 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	bot_scan(t_data *data, int i)
+int	bot_scan(t_data *data)
 {
 	int	bottom_scan;
 
-	(void)i;
 	bottom_scan = 0;
 	while (bottom_scan < data->alen)
 	{
@@ -28,11 +27,10 @@ int	bot_scan(t_data *data, int i)
 	return (bottom_scan);
 }
 
-int	roof_scan(t_data *data, int i)
+int	roof_scan(t_data *data)
 {
 	int	top_scan;
 
-	(void)i;
 	top_scan = data->alen;
 	while (top_scan > 0)
 	{

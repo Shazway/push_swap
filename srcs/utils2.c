@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 11:32:34 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/28 15:47:37 by tmoragli         ###   ########.fr       */
+/*   Updated: 2021/10/29 01:19:20 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	ft_free(t_data *data)
 	free(data->a);
 	free(data->b);
 	free(data->c);
+	free(data->a_move);
+	free(data->b_move);
 	free(data);
 }
 

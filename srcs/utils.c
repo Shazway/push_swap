@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 11:18:56 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/28 22:58:57 by magostin         ###   ########.fr       */
+/*   Updated: 2021/10/29 01:05:28 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,31 +77,35 @@ void	print_stacks(t_data *data)
 	printf("\n");
 }
 
-int	ft_allocate(t_data **data, int len)
+int	ft_allocate_moves(t_data *data)
 {
-	*data = malloc(sizeof(t_data));
-	if (!*data)
-		return (0);
-	(*data)->alen = len;
-	(*data)->blen = -1;
-	(*data)->clen = len;
-	(*data)->start_chunk = 0;
-	(*data)->print = 1;
-	if ((*data)->alen < 499)
-		(*data)->chunk_size = (((*data)->alen + 1) / 6);
+	data->a_move = malloc(sizeof(t_move));
+	data->b_move = malloc(sizeof(t_move));
+	if (!data->a_move || !data->b_move)
+		return (1);
+	return (0);
+}
+
+int	ft_allocate(t_data *data, int len)
+{
+	if (!data || ft_allocate_moves(data))
+		return (1);
+	data->alen = len;
+	data->blen = -1;
+	data->clen = len;
+	data->start_chunk = 0;
+	data->print = 1;
+	if (data->alen < 499)
+		data->chunk_size = ((data->alen + 1) / 6);
 	else
-		(*data)->chunk_size = ((*data)->alen + 1) / 12;
-	(*data)->end_chunk = (*data)->chunk_size - 1;
-	(*data)->a = malloc(sizeof(int) * (len + 1));
-	if (!(*data)->a)
-		return (0);
-	(*data)->b = malloc(sizeof(int) * (len + 1));
-	if (!(*data)->b)
-		return (0);
-	(*data)->c = malloc(sizeof(int) * (len + 1));
-	if (!(*data)->c)
-		return (0);
-	return (1);
+		data->chunk_size = (data->alen + 1) / 12;
+	data->end_chunk = data->chunk_size - 1;
+	data->a = malloc(sizeof(int) * (len + 1));
+	data->b = malloc(sizeof(int) * (len + 1));
+	data->c = malloc(sizeof(int) * (len + 1));
+	if (!data->a || !data->b || !data->c)
+		return (1);
+	return (0);
 }
 
 void	sort_c_tab(t_data *data)
