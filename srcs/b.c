@@ -6,7 +6,7 @@
 /*   By: tmoragli <tmoragli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 15:46:03 by tmoragli          #+#    #+#             */
-/*   Updated: 2021/10/29 23:09:51 by tmoragli         ###   ########.fr       */
+/*   Updated: 2021/10/30 01:14:55 by tmoragli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	find_max_index(int *stack, int len)
 	int		max;
 
 	i = -1;
-	max = -1;
+	max = -2147483648;
 	while (++i <= len)
 	{
-		if (max == -1 || max < stack[i])
+		if (max < stack[i])
 		{
 			ret = i;
 			max = stack[i];
@@ -60,8 +60,6 @@ void	best_move_b(t_data *data)
 		i++;
 	data->b_move->left_i = i;
 	data->b_move->right_i = data->blen - i + 1;
-	//printf("trying to push %d on a, with %d moves left and %d moves right\n", data->b[i], data->b_move->left_i, data->b_move->right_i);
-	//printf("chunk range is %d - %d\n", data->c[data->start_chunk], data->c[data->end_chunk]);
 }
 
 void	best_move_a(t_data *data, int top_scan, int bottom_scan)
@@ -78,8 +76,6 @@ void	best_move_a(t_data *data, int top_scan, int bottom_scan)
 		data->a_move->right_i = data->alen - bottom_scan;
 		data->a_move->i = bottom_scan;
 	}
-	//printf("Trying to push %d in b with %d moves left and %d moves right\n", data->a_move->i, data->a_move->left_i, data->a_move->right_i);
-	//printf("Chunk range is %d - %d\n", data->c[data->start_chunk], data->c[data->end_chunk]);
 }
 
 void	apply_moves(t_data *data)
