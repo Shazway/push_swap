@@ -18,7 +18,7 @@ OBJS			=	$(SRCS:.c=.o)
 CC				=	clang
 RM				=	@rm -f
 
-LD_FLAGS		=	../libft/libft.a -g 
+LD_FLAGS		=	../libft/libft.a -g
 FLAGS			=	-Wall -Werror -Wextra $(INCLUDES) -D BUFFER_SIZE=4096 -g
 
 .c.o:
